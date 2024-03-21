@@ -7,6 +7,8 @@ import { procedure, router } from "../trpc";
 
 export const userRouter = router({
 	getUsers: procedure.query(async() => {
+		const a = await prisma.user.findMany();
+		console.log(JSON.stringify(a),"ok")
 		return await prisma.user.findMany();
 	}),
 
